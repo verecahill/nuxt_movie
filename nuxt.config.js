@@ -18,16 +18,22 @@ export default {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: '#fff' },
+  loading: { color: 'yellow', failedColor: 'yellow', height: '20px', duration: 50000 },
+  loadingIndicator: {
+    name: 'circle',
+    color: '#fa923f'
+  },
   /*
   ** Global CSS
   */
   css: [
+    '~assets/styles/main.css'
   ],
   /*
   ** Plugins to load before mounting the App
   */
   plugins: [
+    '~plugins/date-filter.js'
   ],
   /*
   ** Nuxt.js dev-modules
@@ -58,5 +64,17 @@ export default {
     */
     extend (config, ctx) {
     }
-  }
+  },
+  router: {
+    extendRoutes(routes, resolve){
+      routes.push({
+        path: "*",
+        component: resolve(__dirname, 'pages/index.vue')
+      })
+    }
+  },
+  // transition: {
+  //   name: 'fade',
+  //   mode: 'out-in',
+  // }
 }

@@ -1,12 +1,17 @@
 <template>
   <div>
     <section>
-      <button @click="$router.push('/admin/new-post')">Create post</button>
+      <b-navbar type="dark" variant="dark">
+        <b-navbar-nav>
+          <b-nav-item href="/">Home</b-nav-item>
+          <b-button @click="$router.push('/admin/new-post')">Create post</b-button>
+        </b-navbar-nav>
+      </b-navbar>
     </section>
     <section>
       <h1>Existing Post</h1>
     </section>
-    <PostList isAdmin/>
+    <PostList :posts="loadedPosts" isAdmin />
   </div>
 </template>
 
@@ -17,7 +22,12 @@ export default {
   components: {
     PostList
   },
-  layout: 'admin',
+  layout: "admin",
+  computed: {
+    loadedPosts() {
+      return this.$store.getters.loadedPosts;
+    }
+  }
 };
 </script>
 
@@ -25,4 +35,5 @@ export default {
 section {
   color: white;
 }
+
 </style>

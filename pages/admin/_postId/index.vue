@@ -1,28 +1,38 @@
 <template>
   <div>
-    <AdminPostForm :post="loadedPost" />
+    <AdminPostForm :post="loadedPost" @submit="onSubmitted" />
   </div>
 </template>
 
 <script>
 import AdminPostForm from "@/components/Admin/AdminPostForm";
+import axios from "axios";
 
 export default {
   components: {
     AdminPostForm
   },
-  data() {
-    return {
-      loadedPost: {
-        author: "woojin",
-        title: "my post",
-        content: "Amazing post",
-        thumbnailLink:
-          "https://cdn.pixabay.com/photo/2019/06/01/00/04/peony-4243278_960_720.jpg"
-      }
-    };
+  layout: "admin",
+  asyncData(context) {
+    return axios
+      .get(
+        "https://heavysol-dc615.firebaseio.com/posts/" +
+          context.params.postId +
+          ".json"
+      )
+      .then(res => {
+        return {
+          loadedPost: {...res.data, id: context.params.postId}
+        };
+      })
+      .catch(e => context.error());
   },
-
-  layout: "admin"
+  methods: {
+    onSubmitted(editedPost) {
+      this.$store.dispatch("editPost", editedPost).then(() => {
+        this.$router.push("/admin");
+      });
+    }
+  }
 };
 </script>

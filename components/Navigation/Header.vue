@@ -1,6 +1,6 @@
 <template>
   <b-navbar toggleable="lg" type="dark" variant="dark">
-    <b-navbar-brand href="/">Mblog</b-navbar-brand>
+    <nuxt-link class="navbar-brand" to="/">Mblog</nuxt-link>
 
     <b-navbar-toggle target="nav-collapse"></b-navbar-toggle>
 
@@ -68,7 +68,8 @@ export default {
   text-decoration: none;
   color: white;
 }
-.nuxt-link-active {
-  /* color: palegreen; */
+
+.navbar-brand{
+  text-decoration: none;
 }
 </style>

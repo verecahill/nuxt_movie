@@ -21,10 +21,14 @@
           <b-form-input id="input-2" v-model="editedPost.title" required placeholder="Title"></b-form-input>
         </b-form-group>
 
+        <b-form-group id="input-group-2" label="Preview Text" label-for="input-2">
+          <b-form-input id="input-2" v-model="editedPost.previewText" required placeholder="Preview Text"></b-form-input>
+        </b-form-group>
+
         <b-form-group id="input-group-3" label="Thunbmail Image" label-for="input-3">
           <b-form-input
             id="input-3"
-            v-model="editedPost.thumbnailLink"
+            v-model="editedPost.thumbnail"
             required
             placeholder="Thunbmail Image URL"
           ></b-form-input>
@@ -71,14 +75,15 @@ export default {
         : {
             author: "",
             title: "",
-            thumbnailLink: "",
-            content: ""
+            thumbnail: "",
+            content: "",
+            previewText: ""
           }
     };
   },
   methods: {
-    onSave(evt) {
-      alert(JSON.stringify(this.editedPost));
+    onSave() {
+      this.$emit('submit', this.editedPost);
     },
     onReset(evt) {
       // evt.preventDefault()
