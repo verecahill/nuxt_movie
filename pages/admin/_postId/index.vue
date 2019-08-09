@@ -16,7 +16,7 @@ export default {
   asyncData(context) {
     return axios
       .get(
-        "https://heavysol-dc615.firebaseio.com/posts/" +
+        process.env.baseUrl + "/posts/" +
           context.params.postId +
           ".json"
       )

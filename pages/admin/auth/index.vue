@@ -1,7 +1,7 @@
 <template>
   <div>
     <section>
-      <b-form @submit.prevent="onSave">
+      <b-form @submit.prevent="onSubmit">
         <b-form-group id="input-group-1" label="Email" label-for="input-1">
           <b-form-input id="input-1" v-model="email" type="email" required placeholder="Email"></b-form-input>
         </b-form-group>
@@ -38,12 +38,14 @@ export default {
   data() {
     return {
       isLogin: false,
-      eamil: "",
+      email: "",
       password: ""
     };
   },
   methods: {
-    onSave() {}
+    onSubmit() {
+      this.$axios.$post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + proces.env.fbAPIKey, )
+    }
   },
 
   layout: "admin"

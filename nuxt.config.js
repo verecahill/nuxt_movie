@@ -71,10 +71,15 @@ export default {
         path: "*",
         component: resolve(__dirname, 'pages/index.vue')
       })
-    }
+    },
+    middleware: 'log'
   },
   // transition: {
   //   name: 'fade',
   //   mode: 'out-in',
   // }
+  env: {
+    baseUrl : process.env.BASE_URL || '<Your firebase url>' ,
+    fbAPIKey: '<Your firebase web api key'
+  }
 }

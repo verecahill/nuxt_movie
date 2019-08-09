@@ -14,6 +14,7 @@
 <script>
 import Header from "@/components/Navigation/Header";
 export default {
+  // middleware: 'log',
   components: {
     Header
   }
