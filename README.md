@@ -17,6 +17,12 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+# firebase login -> init -> deploy
+$ firebase login
+$ firebase init
+$ firebase login
 ```
 
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## Hosting URL
+### https://heavysol-dc615.firebaseapp.com/

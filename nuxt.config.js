@@ -87,6 +87,9 @@ export default {
     },
     middleware: 'log'
   },
+  // generate: {
+  //   dir: './public'
+  // },
   // transition: {
   //   name: 'fade',
   //   mode: 'out-in',
