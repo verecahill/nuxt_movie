@@ -10,9 +10,6 @@
           <nuxt-link class="nav-item" to="/posts">Posts</nuxt-link>
         </span>
         <span @click="closeCollapse" class="nav-item">
-          <nuxt-link class="nav-item" to="/about">About</nuxt-link>
-        </span>
-        <span @click="closeCollapse" class="nav-item">
           <nuxt-link class="nav-item" to="/admin">Admin</nuxt-link>
         </span>
       </b-navbar-nav>
