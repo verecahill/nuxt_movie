@@ -95,8 +95,8 @@ export default {
   //   mode: 'out-in',
   // }
   env: {
-    baseUrl: process.env.BASE_URL || 'https://heavysol-dc615.firebaseio.com',
-    fbAPIKey: 'AIzaSyByCBZBDWWFK8ZiBP9anT8HjIrDnIQSnB8'
+    baseUrl: process.env.BASE_URL || '<Your Firebase URL>',
+    fbAPIKey: '<Your API KEY>'
   },
   serverMiddleware: [
     bodyParser.json(),

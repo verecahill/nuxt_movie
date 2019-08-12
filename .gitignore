@@ -90,5 +90,5 @@ sw.*
 # Vim swap files
 *.swp
 
-nuxt.config.js
+*.config.js
 firebaserc
