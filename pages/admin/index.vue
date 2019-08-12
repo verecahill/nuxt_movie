@@ -5,6 +5,7 @@
         <b-navbar-nav>
           <b-nav-item href="/">Home</b-nav-item>
           <b-button @click="$router.push('/admin/new-post')">Create post</b-button>
+          <b-button @click="onLogout">Logout post</b-button>
         </b-navbar-nav>
       </b-navbar>
     </section>
@@ -23,9 +24,16 @@ export default {
     PostList
   },
   layout: "admin",
+  middleware: ['check-auth', 'auth'],
   computed: {
     loadedPosts() {
       return this.$store.getters.loadedPosts;
+    }
+  },
+  methods: {
+    onLogout() {
+      this.$store.dispatch('logout')
+      this.$router.push('/admin/auth')
     }
   }
 };

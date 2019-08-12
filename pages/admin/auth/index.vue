@@ -16,7 +16,7 @@
           ></b-form-input>
         </b-form-group>
 
-        <b-button type="submit" variant="success">Submit</b-button>
+        <b-button type="submit" variant="success">{{ isLogin ? 'Login' : 'Signup'}}</b-button>
         <b-button
           variant="success"
           @click="isLogin = !isLogin"
@@ -35,6 +35,7 @@ section {
 
 <script>
 export default {
+  layout: "admin",
   data() {
     return {
       isLogin: false,
@@ -44,10 +45,15 @@ export default {
   },
   methods: {
     onSubmit() {
-      this.$axios.$post('https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=' + proces.env.fbAPIKey, )
+      this.$store.dispatch('authenticateUser', {
+        isLogin: this.isLogin,
+        email: this.email,
+        password: this.password 
+      })
+      .then(() => {
+        this.$router.push('/admin')
+      })
     }
-  },
-
-  layout: "admin"
+  }
 };
 </script>
